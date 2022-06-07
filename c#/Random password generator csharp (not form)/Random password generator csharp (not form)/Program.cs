@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Random_password_generator_csharp__not_form_
         {
             char type = ' ';
             char[] password;
+            string userName = Environment.UserName, path = $@"C:\Users\{userName}\AppData\Roaming\fs_psw_gen", passw_temp;
             int lung_passw ,temp = 0;
             Random rnd = new Random();
 
@@ -104,11 +106,35 @@ namespace Random_password_generator_csharp__not_form_
                     Console.WriteLine("Type not valid");
                     goto inizio;
             }
-            //Prints the password
-            for (int i = 0; i < lung_passw; i++)
+
+            //Converts the arrays of char into a string
+            passw_temp = new string(password);
+
+            //Saves the password
+            if (!Directory.Exists(path))
             {
-                Console.Write($"{password[i]}");
+                Console.WriteLine($@"The last password generated is saved in C:\Users\{userName}\AppData\Roaming\fs_psw_gen");
+                //Creating the directory
+                Directory.CreateDirectory(path);
+                //Creating the file
+                using (StreamWriter writer = File.CreateText($@"{path}\psw.txt"))
+                {
+                    //Saving the password
+                    writer.WriteLine(passw_temp);
+                }
+
             }
+            else
+            {
+                //Saving the password to the file
+                using (StreamWriter writer = File.CreateText($@"{path}\psw.txt"))
+                {
+                    writer.WriteLine(passw_temp);
+                }
+            }
+
+            //Prints the password
+            Console.Write(passw_temp);
 
             Console.ReadKey();
         }
