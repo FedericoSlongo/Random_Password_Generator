@@ -1,2 +1,2 @@
 # Random_Password_Generator
-Generate a random password c# and c (for now only c#)
+Generate a random password c# and c
