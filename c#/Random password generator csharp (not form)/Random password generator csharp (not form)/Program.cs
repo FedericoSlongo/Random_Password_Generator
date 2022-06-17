@@ -22,7 +22,7 @@ namespace Random_password_generator_csharp__not_form_
             Console.Write("How long do you want the password to be ");
             lung_passw = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("You want only [c]arracters, [n]umber e carracters, [s]ymbols numbers and carracters ");
+            Console.Write("You want only [c]haracters, [n]umber e characters, [s]ymbols numbers and characters ");
             type = Convert.ToChar(Console.ReadLine());
 
             //Sets the lenght of the password array to the inserted password lenght
