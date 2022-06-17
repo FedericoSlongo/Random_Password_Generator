@@ -12,7 +12,7 @@ int main()
 
     scanf("%c",&type);
 
-    printf("You want only [c]arracters, [n]umber e carracters, [s]ymbols numbers and carracters ");
+    printf("You want only [c]haracters, [n]umber e characters, [s]ymbols numbers and characters ");
     scanf("%c",&type);
 
     char password[lung_passw];
